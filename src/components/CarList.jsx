@@ -1,13 +1,20 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {AiFillHeart} from 'react-icons/ai'
 import { fb } from '../service/firebase';
 
 export const CarList = (props) => {
+    // const [vehicles,setVehicles] = useState([]);
 
-    const vehicles = fb.firestore.collection("vehicles")
 
-    
-    console.log(vehicles);
+
+    // const dbVehicles = fb.firestore.collection("vehicles").get().then((snapshot)=>{
+    //     snapshot.forEach(v=>{
+    //         setVehicles(v.data())
+    //     })
+    // })
+
+    // console.log(vehicles);
+ 
 
     return (
         <div style={{display:'flex',flexDirection:'column', alignItems:'center', backgroundColor:"#DDDDDD"}}>
