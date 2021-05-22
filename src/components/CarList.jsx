@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
 import {AiFillHeart} from 'react-icons/ai'
 import { fb } from '../service/firebase';
+import { useHistory } from "react-router-dom";
 
 export const CarList = (props) => {
+    let history = useHistory();
     // const [vehicles,setVehicles] = useState([]);
 
 
@@ -22,7 +24,7 @@ export const CarList = (props) => {
             <div  style={{display:'flex', flexDirection:'column', alignItems:'center', width:"80%"}}>
 
             {props.list.map(v=>(
-                <div style={{width:"90%",
+                <div onClick={()=>{history.push(`info/${v.id}`)}} style={{width:"90%",
                 padding:'1rem', display:'flex', flexDirection:"column", alignItems:'center', marginBottom:"1rem",
                  marginTop:"1rem", justifyContent:"space-around", borderRadius:"1rem",backgroundColor:"#FDFDFD",boxShadow:"1px 1px 15px", position:'relative'}}>
                     <AiFillHeart style={{position:'absolute',left:"80%", top:"8%"}} fontSize="2.5rem" color="white" onClick={()=>{}}/>

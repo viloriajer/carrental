@@ -1,10 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import Carousel from "react-elastic-carousel";
 
-import { data } from "../data/1";
 export const CarDetails = () => {
 	const { id } = useParams();
+	const [data,setData] = useState();
+
+	const getData= async()=>{
+		await fetch(`${id}.json`
+		,{
+		  headers : { 
+			'Content-Type': 'application/json',
+			'Accept': 'application/json'
+		   }
+		}
+		)
+		  .then(function(response){
+			console.log(response)
+			return response.json();
+		  })
+		  .then(function(myJson) {
+			setData(myJson)
+		  });
+	  }
+	  useEffect(()=>{
+		getData()
+	  },[])
 
 	const imgs = [
 		{
@@ -39,12 +60,11 @@ export const CarDetails = () => {
 	return (
 		<>
 			<div style={{ padding: 15, display: "flex", flexDirection: "column" }}>
-				<h1 style={{ alignSelf: "center" }}>Car Details Page</h1>
 				<div>
 					<Carousel>
-						{imgs.map((item) => (
+						{data?.imgs.map((item) => (
 							<img
-								src={item.img}
+								src={item}
 								style={{ width: "100%", objectFit: "cover" }}
 							/>
 						))}
@@ -52,7 +72,7 @@ export const CarDetails = () => {
 				</div>
 				<div>
 					<div style={{ display: "flex", justifyContent: "space-between" }}>
-						<h3>Car Title</h3>
+						<h3>{data?.car}</h3>
 						<p>$125/Day</p>
 					</div>
 					<div>
@@ -61,7 +81,7 @@ export const CarDetails = () => {
 							style={{
 								display: "flex",
 								flexFlow: "wrap",
-								justifyContent: "space-around",
+								justifyContent: "space-between",
 							}}
 						>
 							{/* <div style={{width:"38%", height:60, border:'1px solid black', borderRadius:15, marginBottom:15, display:"flex", alignItems:"center", justifyContent:"center"}}>{specs.transmission}</div>
@@ -69,18 +89,13 @@ export const CarDetails = () => {
                             <div style={{width:"38%", height:60, border:'1px solid black', borderRadius:15, marginBottom:15, display:"flex", alignItems:"center", justifyContent:"center"}}>{specs.doors} Doors</div>
                             <div style={{width:"38%", height:60, border:'1px solid black', borderRadius:15, marginBottom:15, display:"flex", alignItems:"center", justifyContent:"center"}}>{specs.hp} Horsepower</div> */}
 
-							{specs2.map(item=><div style={{width:"38%", height:60, border:'1px solid black', borderRadius:15, marginBottom:15, display:"flex", alignItems:"center", justifyContent:"center"}}>{item.s}</div>)}
+							{/* {Object.values(data?.specs).map(item=> <div style={{width:"48%", height:60, border:'1px solid black', borderRadius:15, marginBottom:15, display:"flex", alignItems:"center", justifyContent:"center"}}>{item}</div>)} */}
 						</div>
 					</div>
 					<div>
 						<h4>Details</h4>
 						<p>
-							The Toyota Supra (Japanese: トヨタ・スープラ, Toyota Sūpura) is a
-							sports car and grand tourer manufactured by Toyota Motor
-							Corporation beginning in 1978. The name "supra" is derived from
-							the Latin prefix, meaning "above", "to surpass" or "go beyond".
-							The initial four generations of the Supra were produced from 1978
-							to 2002.
+							{data?.description}
 						</p>
 					</div>
 				</div>

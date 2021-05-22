@@ -1,0 +1,16 @@
+{
+	"id": 2,
+	"car": "TT",
+	"make": "Audi",
+	"year": "2016",
+	"dailyRate": 250,
+	"imgs": [
+		"https://s1.cdn.autoevolution.com/images/models/AUDI_TTS-Coupe-Competition-Plus-2020_main.jpg"
+	],
+	"specs": {
+		"engineType": "Turbo-Charged Inline 4",
+		"drivetrain": "All Wheel Drive",
+		"transmission": "6-Speed Automatic"
+	},
+	"description": "TT Stuff"
+}

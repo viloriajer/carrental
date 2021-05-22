@@ -1,4 +1,4 @@
-export const data = [{car:"Supra",make:"Toyota",year:"2020",dailyRate:100,img:"https://www.motorbiscuit.com/wp-content/uploads/2020/05/2021-Toyota-Supra.jpg"},
-{car:"TT",make:"Audi",year:"2016",dailyRate:100,img:"https://s1.cdn.autoevolution.com/images/models/AUDI_TTS-Coupe-Competition-Plus-2020_main.jpg"},
-{car:"Civic Type R",make:"Honda",year:"2019",dailyRate:100,img:"https://www.motortrend.com/uploads/sites/5/2020/05/2020-Honda-Civic-Type-R-front-three-quarter-hero.jpg?fit=around%7C875:492"},
-{car:"WRX STi",make:"Subaru",year:"2015",dailyRate:100,img:"https://static01.nyt.com/images/2014/04/02/multimedia/driven-subaru-wrxsti/driven-subaru-wrxsti-superJumbo.jpg"},]
+export const data = [{id:1,car:"Supra",make:"Toyota",year:"2020",dailyRate:100,img:"https://www.motorbiscuit.com/wp-content/uploads/2020/05/2021-Toyota-Supra.jpg"},
+{id:2,car:"TT",make:"Audi",year:"2016",dailyRate:100,img:"https://s1.cdn.autoevolution.com/images/models/AUDI_TTS-Coupe-Competition-Plus-2020_main.jpg"},
+{id:3,car:"Civic Type R",make:"Honda",year:"2019",dailyRate:100,img:"https://www.motortrend.com/uploads/sites/5/2020/05/2020-Honda-Civic-Type-R-front-three-quarter-hero.jpg?fit=around%7C875:492"},
+{id:4,car:"WRX STi",make:"Subaru",year:"2015",dailyRate:100,img:"https://static01.nyt.com/images/2014/04/02/multimedia/driven-subaru-wrxsti/driven-subaru-wrxsti-superJumbo.jpg"},]
